@@ -1,0 +1,17 @@
+Based on the architecture diagram, and the steps you have taken so far to upload data and access the application web service, identify at least 2 obvious poor practices as it relates to security.  Include justification.
+
+# Poor practice 1
+
+Web Server is unprotected on public subnet. To improve network security for web server,
+- move to private subnet
+- further lock down access through security groups and network acls
+- add bastion host or session manager to manage connections
+
+# Poor practice 2
+
+Secret Recipe Vault has only minimal protection.  To improve secret vault,
+- Add encryption and versioning
+- Add VPC endpoint and add S3 bucket policy to restrict to VPC
+- Add monitoring and auditing
+- Add policies to bucket to further restrict access (MFA)
+

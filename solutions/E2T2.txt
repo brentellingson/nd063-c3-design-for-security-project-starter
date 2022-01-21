@@ -1,0 +1,27 @@
+Research and analyze which of the vulnerabilities appear to be related to the code that was deployed for the environment in this project.
+
+There were four big categories of vulnerabilities found:
+
+1. network routes are open.  Remove all unneeded routes from security groups and access control lists. Remove unneeded public IP addresses.
+2. encryption is not enabled.  Add encryption to S3 buckets and EBS volumes
+3. logging is not enabled.  Add cloudtrail logging and cloudwatch monitoring
+4. s3 bucket policies missing.  Remove public access, and add policies to restrict access.
+
+# Security Hub Found most relevant Critical and High Findings
+## CIS AWS findings Related to Code:
+
+- No security groups should allow ingress from 0.0.0.0/0 -- related to deployed code
+- Ensure CloudTrail is enabled in all regions -- baseline security setting
+- Ensure a log metric filter and alarm exist for changes (VPC, SG, IAM, API calls, etc.) -- baseline security setting
+
+## AWS Foundational findings related to Code:
+
+- S3 Block Public Access setting should be enabled at the bucket-level
+- EC2 instances should not have a public IPv4 address
+- EC2 instances should use Instance Metadata Service Version 2 (IMDSv2)
+- Attached EBS volumes should be encrypted at-rest
+- EBS default encryption should be enabled
+- The VPC default security group should not allow inbound and outbound traffic
+- S3 buckets should have server-side encryption enabled
+- S3 buckets should require requests to use Secure Socket Layer
+

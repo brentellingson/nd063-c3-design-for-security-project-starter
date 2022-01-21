@@ -1,0 +1,41 @@
+# Identify tools that will allow you to do the following:
+
+## Scan infrastructure as code templates
+
+There are several; new ones come out too quickly to keep up
+
+1. Checkov
+2. Terrascan
+3. Regula / OPA
+4. Synk
+
+### Example vulnerability
+
+IAC static scanners will find s3 buckets with public access, policies with Allow: "*", overly permissive security groups.
+
+##Scan AMI’s or containers for OS vulnerabilities
+
+1. Twistlock
+2. JFrog XRay
+3. BlackDuck
+
+### Example vulnerability
+
+Container and Machine Image Scanners will find components with known vulnerabilities and misconfigured containers
+(log4j vulnerabilities, containers running as root, etc.)
+
+##Scan an AWS environment for cloud configuration vulnerabilities
+
+In addition to the scanners introduced in this course:
+
+1. Security Hub
+2. Amazon Inspector
+3. Guard Duty
+4. Nessus
+5. Qualys
+6. ThreatStack
+
+### Example vulnerability
+
+These will also do static analysis of misconfigured policies and overly permissive security groups. But they  also
+watch and analyze logs and report on suspicious events.
